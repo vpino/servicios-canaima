@@ -59,7 +59,7 @@ def repositorios_edit(request, repositorio_id):
     if request.method == 'POST':
 
         #Le pasamos los datos del form mas la instancia del objeto capturado en el metodo get_object_or_404
-        form = PackageGenericForm(request.POST, instance=repositorio)
+        form = RepositorioForm(request.POST, instance=repositorio)
 
         #Validamos que los datos enviados se han correctos (campos no vacios, validaciones)
         if form.is_valid():
