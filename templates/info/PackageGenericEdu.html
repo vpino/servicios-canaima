@@ -1,0 +1,50 @@
+{% extends "baseapis.html" %}
+{% block title %} Paquetes Genericos Educativos  {% endblock %}
+{% block content %}
+<br><br>
+<p class ="center-align">
+    <a  href="{% url "generic_edu_create" %}" class="btn-floating btn-large waves-effect ">
+        <i class="material-icons">add</i>
+
+    </a>
+    Agregar Paquete
+</p> <br><br>
+
+    <h5 class="center-align"> Lista de Paquetes Genericos Educativos </h5> <br><br>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col s12 center-align">
+
+                <table class="bordered center-align">
+
+                    <thead>
+                      <tr>
+                          <th data-field="name"> Nombre del Paquete </th>
+                          <th data-field="actions"> Acciones</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for generic in generic %}
+
+                            <tr>
+                                <td> <span class="title"> {{ generic.Nombre }} </span> </td>
+                                <td> <a href="{% url "generic_edu_edit" generic.id %}"> <i class="small material-icons">settings</i> </a>
+                                     <a href="{% url "generic_edu_edit" generic.id %}"> <i class="small material-icons">delete</i> </a>
+                                </td>
+                              </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
